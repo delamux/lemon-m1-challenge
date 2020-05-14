@@ -1,0 +1,23 @@
+$primary-color: #141414;
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $primary-color;
+}
+
+header {
+  display: flex;
+  padding: 16px;
+}
+
+//tablet
+@media screen and (min-width: 1280px) {
+
+}
+
+//tablet
+@media screen and (max-width: 1280px) {
+  
+}
