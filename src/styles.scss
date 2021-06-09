@@ -37,6 +37,9 @@ header {
     .platform-title {
       margin-left: 8px;
       font-size: 24px;
+      @include Tablet {
+        display: none;
+      }
     }
   }
 
@@ -73,18 +76,12 @@ header {
 .section-title {
   margin-left: 16px;
 }
+
 .top {
   display: flex;
   justify-content: space-around;
   flex-direction: row-reverse;
-  @include Tablet() {
-    & > :nth-child(1) {
-      display: none;
-    }
-    & > :nth-child(2) {
-      display: none;
-    }
-  }
+
   @include Mobile {
     flex-direction: column-reverse;
     align-items: center;
@@ -100,10 +97,20 @@ header {
   }
 }
 
+.top {
+  @include Tablet {
+    & > :nth-child(1) {
+      display: none;
+    }
+    & > :nth-child(2) {
+      display: none;
+    }
+  }
+}
+
 .first,
 .second {
   display: flex;
-  // justify-content: space-around;
   flex-wrap: wrap;
   .item {
     display: flex;
@@ -118,8 +125,7 @@ header {
     }
     &:hover {
       transition: ease-in 0.2s;
-      transform: scale(1.1);
-      box-shadow: 0px 0px 10px $primary-color;
+      transform: scale(1.2);
       cursor: pointer;
     }
   }
