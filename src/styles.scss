@@ -5,6 +5,18 @@ $secondary-color: white;
 
 $font-primary: "Jost", sans-serif;
 
+@mixin Tablet {
+  @media (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin Mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -45,10 +57,38 @@ header {
   }
 }
 
+#top-text {
+  font-family: sans-serif;
+  font-size: 20px;
+  &::after {
+    content: "5";
+  }
+  @include Tablet {
+    &::after {
+      content: "3";
+    }
+  }
+}
+
+.section-title {
+  margin-left: 16px;
+}
 .top {
   display: flex;
   justify-content: space-around;
   flex-direction: row-reverse;
+  @include Tablet() {
+    & > :nth-child(1) {
+      display: none;
+    }
+    & > :nth-child(2) {
+      display: none;
+    }
+  }
+  @include Mobile {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
   .top-item {
     min-width: 225px;
     display: flex;
@@ -72,62 +112,15 @@ header {
     min-width: 250px;
     img {
       min-width: 250px;
+      @include Tablet {
+        width: 100%;
+      }
     }
     &:hover {
       transition: ease-in 0.2s;
       transform: scale(1.1);
       box-shadow: 0px 0px 10px $primary-color;
       cursor: pointer;
-    }
-  }
-}
-
-.section-title {
-  margin-left: 16px;
-}
-
-//Mobile
-@media screen and (max-width: 718px) {
-  .top {
-    flex-direction: column-reverse;
-    align-items: center;
-  }
-}
-
-//Tablet
-@media screen and (max-width: 1280px) {
-  #top-text {
-    font-family: sans-serif;
-    font-size: 20px;
-    &::after {
-      content: "3";
-    }
-  }
-
-  .top {
-    & > :nth-child(1) {
-      display: none;
-    }
-    & > :nth-child(2) {
-      display: none;
-    }
-  }
-
-  .first,
-  .second {
-    img {
-      width: 100%;
-    }
-  }
-}
-
-//Desktop
-@media screen and (min-width: 1280px) {
-  #top-text {
-    font-family: sans-serif;
-    font-size: 20px;
-    &::after {
-      content: "5";
     }
   }
 }
