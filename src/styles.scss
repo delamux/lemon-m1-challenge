@@ -63,10 +63,12 @@ header {
 .first,
 .second {
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-around;
+  // justify-content: space-around;
+  flex-wrap: wrap;
   .item {
     display: flex;
+    justify-content: center;
+    flex: 1;
     min-width: 250px;
     img {
       min-width: 250px;
@@ -113,24 +115,9 @@ header {
 
   .first,
   .second {
-    flex-wrap: wrap;
-    // display: grid;
-    // grid-template-columns: repeat(4, 1fr);
-    // grid-template-rows: repeat(2, 1fr);
-    // justify-content: stretch;
-    // align-content: stretch;
-    // & > :nth-child(5) {
-    //   grid-column: 1 / span 2;
-    //   img {
-    //     min-width: 100%;
-    //   }
-    // }
-    // & > :nth-child(6) {
-    //   grid-column: 3 / span 2;
-    //   img {
-    //     min-width: 100%;
-    //   }
-    // }
+    img {
+      width: 100%;
+    }
   }
 }
 
