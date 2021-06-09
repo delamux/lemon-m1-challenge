@@ -62,9 +62,15 @@ header {
 
 .first,
 .second {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
   .item {
-    padding: 4px;
-    justify-content: space-evenly;
+    display: flex;
+    min-width: 250px;
+    img {
+      min-width: 250px;
+    }
     &:hover {
       transition: ease-in 0.2s;
       transform: scale(1.1);
@@ -78,18 +84,11 @@ header {
   margin-left: 16px;
 }
 
-//tablet
-@media screen and (min-width: 768px) {
-}
-
-//Desktop
-@media screen and (min-width: 1280px) {
-  #top-text {
-    font-family: sans-serif;
-    font-size: 20px;
-    &::after {
-      content: "5";
-    }
+//Mobile
+@media screen and (max-width: 718px) {
+  .top {
+    flex-direction: column-reverse;
+    align-items: center;
   }
 }
 
@@ -114,16 +113,34 @@ header {
 
   .first,
   .second {
-    display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    // display: grid;
+    // grid-template-columns: repeat(4, 1fr);
+    // grid-template-rows: repeat(2, 1fr);
+    // justify-content: stretch;
+    // align-content: stretch;
+    // & > :nth-child(5) {
+    //   grid-column: 1 / span 2;
+    //   img {
+    //     min-width: 100%;
+    //   }
+    // }
+    // & > :nth-child(6) {
+    //   grid-column: 3 / span 2;
+    //   img {
+    //     min-width: 100%;
+    //   }
+    // }
   }
 }
 
-//Mobile
-@media screen and (max-width: 812px) {
-  .top {
-    flex-direction: column-reverse;
-    align-items: center;
+//Desktop
+@media screen and (min-width: 1280px) {
+  #top-text {
+    font-family: sans-serif;
+    font-size: 20px;
+    &::after {
+      content: "5";
+    }
   }
 }
